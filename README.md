@@ -29,10 +29,10 @@ npm run dev
 
 ## Контейнер
 
-Образ использует [официальный Nginx Alpine](https://hub.docker.com/_/nginx), запускается с UID/GID `101:101`, слушает порт `8080` и отвечает `200 ok` на `/healthz`. Node.js и npm в финальном образе отсутствуют. Dockerfile копирует только HTML, конфигурацию сервера и публичные ресурсы.
+Образ использует [официальный Nginx Alpine](https://hub.docker.com/_/nginx), запускается с UID/GID `1000:1000` и отвечает `200 ok` на `/healthz`. Порт берётся из переменной `PORT`, по умолчанию `8080`. Node.js и npm в финальном образе отсутствуют. Dockerfile копирует только HTML, конфигурацию сервера, небольшой скрипт запуска и публичные ресурсы.
 
 ```powershell
-docker build --pull -t neuroshift:local .
+docker build --pull --platform linux/amd64 --provenance=false --sbom=false -t neuroshift:local .
 docker run --rm --name neuroshift -p 8080:8080 --read-only --tmpfs /tmp:rw,noexec,nosuid,size=16m,mode=1777 --cap-drop ALL --security-opt no-new-privileges:true neuroshift:local
 ```
 
@@ -52,13 +52,17 @@ docker compose down
 
 Nginx сжимает текст, разрешает только локальные скрипты и стили через CSP, добавляет заголовки безопасности, возвращает `404` для отсутствующих ресурсов. HTML, CSS и JavaScript перепроверяются при посещении; изображения кешируются на сутки. При замене изображений для немедленного обновления меняйте имя файла. Логи идут в stdout/stderr. Для read-only root filesystem нужен записываемый `/tmp`; остальное состояние контейнер не хранит.
 
+`nginx.conf` используется как шаблон. Скрипт `docker-entrypoint.sh` подставляет только `${PORT}` и сохраняет конфигурацию в `/tmp`, оставляя переменные самого Nginx без изменений. Затем он запускает Nginx через `exec`, чтобы процесс получал сигналы остановки. Порт проверяется на диапазон 1–65535. Для локальной проверки другого порта можно передать `-e PORT=9090 -p 9090:9090`.
+
 ## Container Apps
 
 1. Соберите образ для архитектуры выбранного облачного окружения, загрузите его в свой container registry и укажите этот образ в Container Apps.
-2. Включите внешний HTTP ingress с target port `8080`. Публичный HTTPS завершает ingress; сам Nginx принимает HTTP внутри окружения.
-3. Настройте HTTP startup/readiness/liveness probes на путь `/healthz`, порт `8080`. Docker `HEALTHCHECK` удобен локально; облачные probes задаются отдельно.
+2. В Cloud.ru укажите порт контейнера `8080` (либо другой выбранный порт). Среда сама передаст его через зарезервированную переменную `PORT`; Nginx будет слушать `0.0.0.0:$PORT`. Публичный HTTPS завершает ingress; сам Nginx принимает HTTP внутри окружения.
+3. Настройте HTTP startup/readiness/liveness probes на путь `/healthz`, выбранный порт контейнера. Docker `HEALTHCHECK` удобен локально; облачные probes задаются отдельно.
 4. Постоянный диск и секреты для этой версии не нужны. При read-only root filesystem предоставьте записываемый временный том `/tmp`.
 5. Для экономии допустим `min replicas = 0`, если подходит задержка первого запроса после простоя. Для постоянной готовности выберите минимум одну реплику. Корзина хранится в localStorage браузера и не зависит от числа реплик.
+
+Cloud.ru по умолчанию запускает непривилегированный контейнер с UID `1000`. В образе этот пользователь создан явно; инструкция `VOLUME` не используется. Требования: [Docker-образ](https://cloud.ru/docs/container-apps-evolution/ug/topics/concepts__image-requirements), [среда выполнения](https://cloud.ru/docs/container-apps-evolution/ug/topics/concepts__runtime).
 
 ## Содержание и ограничения
 
@@ -73,6 +77,6 @@ Nginx сжимает текст, разрешает только локальн�
 
 ## Репозиторий
 
-Первая версия проверена 13 октября 2026 года: статические проверки проходят, Playwright проходит через Docker на семи ширинах и двух коротких мобильных экранах. Образ Linux amd64 занимает около 60 MiB и прошёл запуск с read-only root filesystem, UID 101 и healthcheck. Локально оставлен контейнер `neuroshift-preview` на http://127.0.0.1:8088; остановка: `docker stop neuroshift-preview`, повторный запуск: `docker start neuroshift-preview`.
+Первая версия проверена 13 октября 2026 года: статические проверки проходят, Playwright проходит через Docker на семи ширинах и двух коротких мобильных экранах. После сверки с требованиями Cloud.ru образ обновлён до UID/GID `1000:1000` и порта из `PORT`. Проверены read-only root filesystem, конфигурация Nginx, healthcheck и HTTP 200 на портах 8080 и 9090; некорректный PORT отклоняется. Локально оставлен контейнер `neuroshift-preview` на http://127.0.0.1:8088; остановка: `docker stop neuroshift-preview`, повторный запуск: `docker start neuroshift-preview`.
 
 Репозиторий исходников: [KostyaSemenkov/AI_Knowledge](https://github.com/KostyaSemenkov/AI_Knowledge), ветка `main`. В корне находятся Dockerfile, конфигурация Nginx, Compose и план разработки. Публикация образа в container registry и развёртывание в Container Apps выполняются отдельным этапом.

@@ -14,6 +14,7 @@ const required = [
   "assets/favicon.svg",
   "assets/LUCIDE-LICENSE.txt",
   "Dockerfile",
+  "docker-entrypoint.sh",
   "nginx.conf",
   ".dockerignore",
   "compose.yaml",
