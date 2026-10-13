@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111311" />
+    <meta
+      name="description"
+      content="NEUROSHIFT: практическое обучение промпт-инжинирингу, созданию контента и работе с искусственным интеллектом. Найдите свой маршрут и соберите первый проект."
+    />
+    <meta property="og:title" content="NEUROSHIFT | Обучение работе с ИИ" />
+    <meta
+      property="og:description"
+      content="От первого промпта к собственным проектам. Обучение искусственному интеллекту через практику."
+    />
+    <meta property="og:type" content="website" />
+    <title>NEUROSHIFT | Обучение работе с ИИ</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script type="module" src="assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#" aria-label="NEUROSHIFT, главная"
+          ><span class="brand-mark" aria-hidden="true">N<span>↗</span></span
+          >NEUROSHIFT<span class="brand-period">.</span></a
+        >
+        <nav id="main-nav" class="main-nav" aria-label="Основная навигация">
+          <a href="#courses">Курсы</a><a href="#lab">Промпт-лаб</a><a href="#program">Программа</a
+          ><a href="#projects">Практика</a><a href="#business">Для команд</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            class="icon-button cart-trigger"
+            type="button"
+            data-open-cart
+            aria-label="Открыть корзину, 0 курсов"
+            title="Корзина"
+          >
+            <svg aria-hidden="true"><use href="assets/icons.svg#shopping-bag"></use></svg
+            ><span id="cart-count" class="cart-count" hidden>0</span>
+          </button>
+          <a class="button button-lime header-cta" href="#courses"
+            >Выбрать курс<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg
+          ></a>
+          <button
+            id="menu-toggle"
+            class="icon-button menu-toggle"
+            type="button"
+            aria-label="Открыть меню"
+            aria-controls="main-nav"
+            aria-expanded="false"
+            title="Меню"
+          >
+            <svg aria-hidden="true"><use href="assets/icons.svg#menu"></use></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-art"
+          src="assets/media/hero.webp"
+          width="1536"
+          height="1024"
+          alt="Хромированная буква N и прозрачные лаймовые панели в футуристичной студии"
+          fetchpriority="high"
+        />
+        <div class="container hero-content">
+          <p class="eyebrow hero-eyebrow">
+            <span class="signal" aria-hidden="true"></span>Практическая школа искусственного интеллекта
+          </p>
+          <h1 id="hero-title">NEUROSHIFT<span>.</span></h1>
+          <p class="hero-tagline">Искусственный интеллект.<br /><span>Ваш следующий навык.</span></p>
+          <p class="hero-description">
+            Превращайте идеи в точные промпты, сильный контент и готовые проекты. Начните с задачи, которая важна именно
+            вам.
+          </p>
+          <div class="hero-buttons">
+            <a class="button button-lime button-large" href="#routes"
+              >Найти свой курс<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg></a
+            ><a class="button button-outline button-large" href="#lab"
+              ><svg aria-hidden="true"><use href="assets/icons.svg#play"></use></svg>Попробовать промпт-лаб</a
+            >
+          </div>
+          <div class="hero-bottom">
+            <span
+              ><svg aria-hidden="true"><use href="assets/icons.svg#layers"></use></svg>6 направлений</span
+            ><span
+              ><svg aria-hidden="true"><use href="assets/icons.svg#pen-tool"></use></svg>Практические задания</span
+            ><span
+              ><svg aria-hidden="true"><use href="assets/icons.svg#graduation-cap"></use></svg>Собственный проект</span
+            ><a href="#routes" class="hero-scroll" aria-label="Перейти к выбору обучения" title="Выбрать направление"
+              ><svg aria-hidden="true"><use href="assets/icons.svg#arrow-down"></use></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <div class="discipline-strip" aria-label="Направления обучения">
+        <div class="container disciplines">
+          <span>Один навык.<br /><strong>Много возможностей.</strong></span
+          ><span
+            ><svg aria-hidden="true"><use href="assets/icons.svg#file-text"></use></svg>ТЕКСТ</span
+          ><span
+            ><svg aria-hidden="true"><use href="assets/icons.svg#image"></use></svg>ВИЗУАЛ</span
+          ><span
+            ><svg aria-hidden="true"><use href="assets/icons.svg#chart-no-axes-combined"></use></svg>АНАЛИТИКА</span
+          ><span
+            ><svg aria-hidden="true"><use href="assets/icons.svg#command"></use></svg>ПРОЦЕССЫ</span
+          >
+        </div>
+      </div>
+
+      <section class="section routes-section" id="routes" aria-labelledby="routes-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-index">01 /</span>ВАША ТОЧКА СТАРТА</p>
+              <h2 id="routes-title">С чего начнём?</h2>
+            </div>
+            <p class="section-intro">У каждого свой контекст.<br />Найдём обучение под вашу задачу.</p>
+          </div>
+          <div class="route-options" role="group" aria-label="Цель обучения">
+            <button class="route-option is-active" type="button" data-route="start" aria-pressed="true">
+              <svg aria-hidden="true"><use href="assets/icons.svg#sparkles"></use></svg><strong>Начать с нуля</strong
+              ><span>Разобраться и попробовать</span
+              ><svg class="route-arrow" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+            </button>
+            <button class="route-option" type="button" data-route="work" aria-pressed="false">
+              <svg aria-hidden="true"><use href="assets/icons.svg#briefcase"></use></svg
+              ><strong>Применять в работе</strong><span>Решать ежедневные задачи</span
+              ><svg class="route-arrow" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+            </button>
+            <button class="route-option" type="button" data-route="creative" aria-pressed="false">
+              <svg aria-hidden="true"><use href="assets/icons.svg#pen-tool"></use></svg
+              ><strong>Создавать контент</strong><span>От идеи к готовому материалу</span
+              ><svg class="route-arrow" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+            </button>
+            <button class="route-option" type="button" data-route="team" aria-pressed="false">
+              <svg aria-hidden="true"><use href="assets/icons.svg#users"></use></svg><strong>Обучить команду</strong
+              ><span>Выстроить общий подход</span
+              ><svg class="route-arrow" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+            </button>
+          </div>
+          <div class="route-result">
+            <p id="route-description" aria-live="polite">
+              Ваш маршрут: основы промптинга, небольшие задачи и первый самостоятельный проект.
+            </p>
+            <a id="route-link" class="text-link" href="#courses"
+              >Смотреть подходящие курсы<svg aria-hidden="true"><use href="assets/icons.svg#arrow-right"></use></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section catalog-section" id="courses" aria-labelledby="courses-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-index">02 /</span>КАТАЛОГ ОБУЧЕНИЯ</p>
+              <h2 id="courses-title">Навыки, которые<br />находят применение.</h2>
+            </div>
+            <div class="section-intro">
+              <p>Выберите одно направление<br />или соберите свой маршрут.</p>
+              <span class="small-note">Демонстрационные программы и цены</span>
+            </div>
+          </div>
+          <div class="catalog-toolbar">
+            <div class="filter-tabs" role="group" aria-label="Направление курса">
+              <button class="is-active" type="button" data-category="all" aria-pressed="true">Все курсы</button
+              ><button type="button" data-category="foundation" aria-pressed="false">Основы</button
+              ><button type="button" data-category="work" aria-pressed="false">Для работы</button
+              ><button type="button" data-category="creative" aria-pressed="false">Креатив</button
+              ><button type="button" data-category="business" aria-pressed="false">Для бизнеса</button>
+            </div>
+            <label class="level-filter"
+              ><span class="sr-only">Уровень подготовки</span
+              ><select id="level-filter">
+                <option value="all">Любой уровень</option>
+                <option value="beginner">С нуля</option>
+                <option value="intermediate">Есть опыт</option>
+              </select></label
+            >
+          </div>
+          <p id="catalog-status" class="sr-only" role="status"></p>
+          <div id="course-grid" class="course-grid"></div>
+          <div id="catalog-empty" class="empty-state" hidden>
+            <svg aria-hidden="true"><use href="assets/icons.svg#book-open"></use></svg>
+            <h3>В этом сочетании пока нет курсов</h3>
+            <p>Попробуйте другое направление или уровень.</p>
+            <button class="button button-dark" id="reset-filters" type="button">Показать все курсы</button>
+          </div>
+          <noscript
+            ><p>
+              Для подбора курсов и корзины включите JavaScript. Бесплатные материалы и программа доступны ниже.
+            </p></noscript
+          >
+        </div>
+      </section>
+
+      <section class="section lab-section" id="lab" aria-labelledby="lab-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-index">03 /</span>PROMPT LAB</p>
+              <h2 id="lab-title">Хороший результат<br />начинается с запроса.</h2>
+            </div>
+            <p class="section-intro">Контекст, ограничения и формат.<br />Посмотрите, что меняет точный промпт.</p>
+          </div>
+          <div class="lab-toolbar">
+            <div id="scenario-tabs" class="filter-tabs" role="group" aria-label="Пример задачи"></div>
+            <span class="demo-label"
+              ><span class="signal" aria-hidden="true"></span>Подготовленные учебные примеры</span
+            >
+          </div>
+          <div class="prompt-lab">
+            <article class="prompt-pane">
+              <div class="pane-heading">
+                <span><span class="pane-dot" aria-hidden="true"></span>Обычный запрос</span><span class="mono">01</span>
+              </div>
+              <p id="basic-prompt" class="prompt-input"></p>
+              <div class="answer-heading">
+                <svg aria-hidden="true"><use href="assets/icons.svg#sparkles"></use></svg>Пример ответа
+              </div>
+              <p id="basic-result" class="prompt-answer"></p>
+            </article>
+            <article class="prompt-pane improved-pane">
+              <div class="pane-heading">
+                <span><span class="pane-dot" aria-hidden="true"></span>Продуманный промпт</span
+                ><button
+                  class="icon-button copy-prompt"
+                  id="copy-prompt"
+                  type="button"
+                  aria-label="Скопировать улучшенный промпт"
+                  title="Скопировать промпт"
+                >
+                  <svg aria-hidden="true"><use href="assets/icons.svg#copy"></use></svg>
+                </button>
+              </div>
+              <p id="improved-prompt" class="prompt-input"></p>
+              <div class="answer-heading">
+                <svg aria-hidden="true"><use href="assets/icons.svg#sparkles"></use></svg>Пример ответа
+              </div>
+              <p id="improved-result" class="prompt-answer"></p>
+            </article>
+          </div>
+          <div class="lab-takeaway">
+            <svg aria-hidden="true"><use href="assets/icons.svg#wand-sparkles"></use></svg>
+            <p id="scenario-lesson"></p>
+            <a class="text-link" href="#program"
+              >Освоить подход<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section program-section" id="program" aria-labelledby="program-title">
+        <div class="container curriculum-layout">
+          <div class="curriculum-intro">
+            <p class="eyebrow"><span class="section-index">04 /</span>ПРОГРАММА</p>
+            <h2 id="program-title">Понимать. <br />Пробовать. <br /><span>Создавать.</span></h2>
+            <p>От устройства запроса до проекта, который вы можете объяснить, проверить и улучшить.</p>
+            <a class="text-link" href="assets/materials/prompt-brief.md" download
+              >Скачать шаблон задания<svg aria-hidden="true"><use href="assets/icons.svg#download"></use></svg
+            ></a>
+            <div class="curriculum-summary">
+              <span class="big-number">08</span><span>учебных модулей<br />в базовом маршруте</span>
+            </div>
+          </div>
+          <div id="module-list" class="module-list"></div>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-index">05 /</span>СДЕЛАНО В ПРОЦЕССЕ</p>
+              <h2 id="projects-title">Меньше абстракций.<br />Больше своих проектов.</h2>
+            </div>
+            <p class="section-intro">
+              Визуальные концепции, тексты и процессы.<br /><span class="small-note"
+                >Примеры учебных работ, созданные для сайта.</span
+              >
+            </p>
+          </div>
+          <div id="project-grid" class="project-grid"></div>
+          <div class="gallery-caption">
+            <span>Идея → промпт → итерации → результат</span><span class="mono">HUMAN IDEA. AI ASSISTED.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section learning-section" id="learning" aria-labelledby="learning-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-index">06 /</span>КАК ПРОХОДИТ ОБУЧЕНИЕ</p>
+              <h2 id="learning-title">Навык складывается<br />из действий.</h2>
+            </div>
+            <p class="section-intro">Небольшой шаг, понятная задача,<br />время на практику.</p>
+          </div>
+          <ol class="learning-steps">
+            <li>
+              <span class="step-number">01</span>
+              <h3>Выбираете задачу</h3>
+              <p>Определяете направление и результат, который хотите научиться получать.</p>
+            </li>
+            <li>
+              <span class="step-number">02</span>
+              <h3>Разбираете подход</h3>
+              <p>Изучаете примеры, структуру запроса и способы оценивать ответ.</p>
+            </li>
+            <li>
+              <span class="step-number">03</span>
+              <h3>Делаете сами</h3>
+              <p>Проверяете разные формулировки, сравниваете варианты и улучшаете результат.</p>
+            </li>
+            <li>
+              <span class="step-number">04</span>
+              <h3>Собираете проект</h3>
+              <p>Соединяете навыки в одну работу. В формате с сопровождением получаете разбор.</p>
+            </li>
+          </ol>
+          <div class="lesson-example">
+            <div class="lesson-label">
+              <svg aria-hidden="true"><use href="assets/icons.svg#pen-tool"></use></svg><span>ФРАГМЕНТ ПРАКТИКИ</span>
+            </div>
+            <div>
+              <h3>Один продукт. Три аудитории.</h3>
+              <p>
+                Составьте три промпта для описания одного продукта. Меняйте аудиторию, аргументы и тон. Затем проверьте,
+                какие факты ИИ добавил без основания.
+              </p>
+            </div>
+            <a class="button button-dark" href="assets/materials/practice-exercises.md" download
+              >Забрать задания<svg aria-hidden="true"><use href="assets/icons.svg#download"></use></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section formats-section" id="formats" aria-labelledby="formats-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-index">07 /</span>ФОРМАТЫ</p>
+              <h2 id="formats-title">В своём темпе.<br />С нужной поддержкой.</h2>
+            </div>
+            <p class="section-intro">Сравните комплектацию.<br />Выбранный формат попадёт в заявку.</p>
+          </div>
+          <div class="comparison-wrap" role="region" aria-label="Сравнение форматов обучения" tabindex="0">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">Что входит</th>
+                  <th scope="col">Самостоятельно<span>Личный маршрут</span></th>
+                  <th scope="col" class="featured-column">С обратной связью<span>Практика с разбором</span></th>
+                  <th scope="col">Для команды<span>Общие задачи</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Материалы и задания</th>
+                  <td>Да</td>
+                  <td class="featured-column">Да</td>
+                  <td>Да</td>
+                </tr>
+                <tr>
+                  <th scope="row">Итоговый проект</th>
+                  <td>Самопроверка</td>
+                  <td class="featured-column">Разбор работы</td>
+                  <td>Командный проект</td>
+                </tr>
+                <tr>
+                  <th scope="row">Обратная связь</th>
+                  <td>Чек-листы</td>
+                  <td class="featured-column">По заданиям</td>
+                  <td>По задачам команды</td>
+                </tr>
+                <tr>
+                  <th scope="row">Программа</th>
+                  <td>Выбранный курс</td>
+                  <td class="featured-column">Курс + сопровождение</td>
+                  <td>По согласованию</td>
+                </tr>
+                <tr>
+                  <th scope="row">Стоимость</th>
+                  <td>Из каталога</td>
+                  <td class="featured-column">После уточнения объёма</td>
+                  <td>После обсуждения</td>
+                </tr>
+                <tr class="comparison-actions">
+                  <th scope="row">
+                    <span class="small-note">Доступ и сроки уточняются<br />при согласовании обучения</span>
+                  </th>
+                  <td>
+                    <button class="button button-outline-dark" type="button" data-request="self">
+                      Выбрать<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+                    </button>
+                  </td>
+                  <td class="featured-column">
+                    <button class="button button-dark" type="button" data-request="feedback">
+                      Выбрать<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="button button-outline-dark" type="button" data-request="team">
+                      Обсудить<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section business-section" id="business" aria-labelledby="business-title">
+        <div class="container business-layout">
+          <div>
+            <p class="eyebrow"><span class="section-index">08 /</span>NEUROSHIFT FOR TEAMS</p>
+            <h2 id="business-title">Новый подход.<br /><span>На уровне команды.</span></h2>
+            <p class="business-description">
+              Обучение вокруг ваших рабочих ситуаций: от контент-плана до внутренних инструкций. С единым языком задач и
+              понятной проверкой результата.
+            </p>
+            <button class="button button-lime button-large" type="button" data-request="team">
+              Обсудить обучение команды<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+            </button>
+          </div>
+          <div class="business-map">
+            <p class="mono">ЗАДАЧА → ПОДХОД → ПРАКТИКА</p>
+            <div>
+              <svg aria-hidden="true"><use href="assets/icons.svg#pen-tool"></use></svg><span>Маркетинг и контент</span
+              ><span>01</span>
+            </div>
+            <div>
+              <svg aria-hidden="true"><use href="assets/icons.svg#chart-no-axes-combined"></use></svg
+              ><span>Исследования и аналитика</span><span>02</span>
+            </div>
+            <div>
+              <svg aria-hidden="true"><use href="assets/icons.svg#file-text"></use></svg
+              ><span>Документы и инструкции</span><span>03</span>
+            </div>
+            <div>
+              <svg aria-hidden="true"><use href="assets/icons.svg#users"></use></svg><span>Командные процессы</span
+              ><span>04</span>
+            </div>
+            <p class="business-map-note">
+              Начинаем с обсуждения задач. Объём, инструменты и формат согласовываем до старта.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section resources-section" id="resources" aria-labelledby="resources-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-index">09 /</span>ОТКРЫТАЯ БИБЛИОТЕКА</p>
+              <h2 id="resources-title">Начните с малого.<br />Попробуйте сегодня.</h2>
+            </div>
+            <p class="section-intro">Четыре материала для первой практики.<br />Бесплатно и без регистрации.</p>
+          </div>
+          <div id="resource-list" class="resource-list"></div>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div>
+            <p class="eyebrow"><span class="section-index">10 /</span>FAQ</p>
+            <h2 id="faq-title">Хорошие <br />вопросы.</h2>
+            <p class="section-intro">Всё, что полезно знать<br />перед первым шагом.</p>
+          </div>
+          <div id="faq-list" class="faq-list"></div>
+        </div>
+      </section>
+
+      <section class="final-section" aria-labelledby="final-title">
+        <div class="container final-inner">
+          <p class="eyebrow">ВАШ СЛЕДУЮЩИЙ ШАГ</p>
+          <h2 id="final-title">Идея уже есть.<br />Добавим навык.</h2>
+          <div>
+            <a class="button button-dark button-large" href="#courses"
+              >Выбрать обучение<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg></a
+            ><button class="button button-outline-dark button-large" type="button" data-request="consultation">
+              Подготовить заявку
+            </button>
+          </div>
+          <span class="final-watermark" aria-hidden="true">N↗</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <a class="brand" href="#">NEUROSHIFT<span class="brand-period">.</span></a>
+          <p>Человеческие идеи.<br />Новые возможности.</p>
+          <nav aria-label="Навигация в подвале">
+            <a href="#courses">Курсы</a><a href="#resources">Материалы</a><a href="#business">Для команд</a
+            ><a href="#faq">Вопросы</a>
+          </nav>
+          <button class="text-link" type="button" data-request="consultation">
+            Подготовить заявку<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+          </button>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 NEUROSHIFT</span><span>Демонстрационная витрина. Цены и программы приведены для примера.</span
+          ><button class="footer-privacy" id="privacy-button" type="button">Данные и контакты</button>
+        </div>
+      </div>
+    </footer>
+
+    <dialog id="detail-dialog" class="modal detail-modal" aria-labelledby="detail-title">
+      <div class="modal-top">
+        <span class="eyebrow" id="detail-label">О КУРСЕ</span
+        ><button class="icon-button" type="button" data-close aria-label="Закрыть окно" title="Закрыть">
+          <svg aria-hidden="true"><use href="assets/icons.svg#x"></use></svg>
+        </button>
+      </div>
+      <div id="detail-content"></div>
+    </dialog>
+    <dialog id="cart-dialog" class="modal cart-modal" aria-labelledby="cart-title">
+      <div class="modal-top">
+        <h2 id="cart-title">Ваше обучение</h2>
+        <button class="icon-button" type="button" data-close aria-label="Закрыть корзину" title="Закрыть">
+          <svg aria-hidden="true"><use href="assets/icons.svg#x"></use></svg>
+        </button>
+      </div>
+      <div id="cart-items"></div>
+      <div id="cart-summary" class="cart-summary" hidden>
+        <div><span>Итого по каталогу</span><strong id="cart-total"></strong></div>
+        <p class="small-note">
+          Демонстрационные цены. Окончательная стоимость и условия согласовываются перед оплатой.
+        </p>
+        <button id="cart-checkout" class="button button-dark" type="button">
+          Подготовить заявку<svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg>
+        </button>
+      </div>
+    </dialog>
+    <dialog id="request-dialog" class="modal request-modal" aria-labelledby="request-title">
+      <div class="modal-top">
+        <span class="eyebrow">СЛЕДУЮЩИЙ ШАГ</span
+        ><button class="icon-button" type="button" data-close aria-label="Закрыть заявку" title="Закрыть">
+          <svg aria-hidden="true"><use href="assets/icons.svg#x"></use></svg>
+        </button>
+      </div>
+      <h2 id="request-title">Соберём вашу заявку.</h2>
+      <p class="request-intro">
+        Заполните данные и скачайте файл с выбранным обучением. Файл останется у вас: автоматическая отправка пока не
+        подключена.
+      </p>
+      <div id="request-selection" class="request-selection"></div>
+      <form id="request-form">
+        <div class="form-row">
+          <label
+            >Как к вам обращаться<input
+              name="name"
+              autocomplete="name"
+              required
+              minlength="2"
+              maxlength="100"
+              placeholder="Ваше имя" /></label
+          ><label
+            >Электронная почта<input
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              maxlength="160"
+              placeholder="you@example.com"
+          /></label>
+        </div>
+        <label
+          >Формат обучения<select name="format">
+            <option value="self">Самостоятельно</option>
+            <option value="feedback">С обратной связью</option>
+            <option value="team">Для команды</option>
+            <option value="consultation">Помогите выбрать</option>
+          </select></label
+        ><label
+          >Какую задачу хотите решать?<textarea
+            name="goal"
+            rows="3"
+            maxlength="1500"
+            placeholder="Например: создавать контент для своего проекта"
+          ></textarea>
+        </label>
+        <p class="small-note">Данные обрабатываются только в вашем браузере и не сохраняются на сервере.</p>
+        <button class="button button-dark" type="submit">
+          Подготовить файл заявки<svg aria-hidden="true"><use href="assets/icons.svg#file-text"></use></svg>
+        </button>
+        <div id="request-result" class="request-result" role="status" hidden>
+          <svg aria-hidden="true"><use href="assets/icons.svg#check-check"></use></svg>
+          <div>
+            <strong>Файл заявки готов.</strong>
+            <p>Скачайте его. Заявка не отправлена менеджеру.</p>
+            <a id="request-download" class="text-link" download="neuroshift-request.txt"
+              >Скачать заявку<svg aria-hidden="true"><use href="assets/icons.svg#download"></use></svg
+            ></a>
+          </div>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

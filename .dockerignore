@@ -1,0 +1,16 @@
+**
+!Dockerfile
+!nginx.conf
+!index.html
+!assets/
+!assets/styles.css
+!assets/app.js
+!assets/data.js
+!assets/icons.svg
+!assets/favicon.svg
+!assets/LUCIDE-LICENSE.txt
+!assets/media/
+!assets/media/*.webp
+assets/media/gallery-sheet.webp
+!assets/materials/
+!assets/materials/*.md

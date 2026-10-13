@@ -1,0 +1,15 @@
+{
+  "name": "neuroshift",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Lightweight static storefront for AI education",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/preview.mjs",
+    "check": "node scripts/check.mjs",
+    "test:browser": "node scripts/browser-check.mjs"
+  }
+}
